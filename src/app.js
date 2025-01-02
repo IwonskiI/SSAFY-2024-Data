@@ -3,6 +3,8 @@ const messageForm = document.getElementById("message-form");
 const userInput = document.getElementById("user-input");
 const mainContent = document.getElementById("main-content");
 
+const BASE_URL = process.env.API_ENDPOINT;
+
 // 모든 버튼에 적용될 심플한 스타일
 const commonButtonStyles = [
   "text-left",
@@ -479,7 +481,7 @@ function scrollToBottom() {
 
 // Fetch assistant response
 async function getAssistantResponse(userMessage) {
-  const response = await fetch("https://ssafy-2024-backend-pj.fly.dev/assistant", {
+  const response = await fetch(BASE_URL + "/assistant", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
